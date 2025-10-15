@@ -1,0 +1,45 @@
+BASELINE:
+
+    Model:
+
+        LogisticRegression(
+        penalty='l1',
+        solver='liblinear',   # supports L1
+        max_iter=2000,
+        random_state=42
+        )
+
+    UNIGRAM:
+
+        Score: 0.8141
+
+    BIGRAM:
+
+        Score: 0.8375
+
+TUNED:
+
+    Model: 
+
+        LogisticRegression(
+            penalty='l1', 
+            solver='liblinear',
+            max_iter=2000,
+            random_state=42
+        )
+
+    Additional parameters fluctuated:
+
+        'vectorizer__min_df': [1, 2, 3, 5, 10]
+        'clf__C': np.logspace(-3, 6, 10)
+
+    UNIGRAM:
+
+        Optimal values: 'clf__C': np.float64(1000.0), 'vectorizer__min_df': 1
+        Score: 0.8250
+    
+    BIGRAM:
+
+        Optimal values: 'clf__C': np.float64(100.0), 'vectorizer__min_df': 1
+        Score: 0.8500
+

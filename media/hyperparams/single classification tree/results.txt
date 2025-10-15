@@ -1,0 +1,39 @@
+BASELINE:
+
+    Model:
+
+        DecisionTreeClassifier(random_state=42)
+
+    UNIGRAM:
+
+        Score: 0.6641
+
+    BIGRAM:
+
+        Score: 0.6734
+
+TUNED:
+
+    Model: 
+
+        DecisionTreeClassifier(random_state=42)
+
+    Additional parameters fluctuated:
+
+        'vectorizer__min_df': [1, 2, 5, 10],        # sparse-term removal
+        'clf__criterion': ['gini', 'entropy'],      # split quality
+        'clf__max_depth': [None, 20, 40],           # control depth/complexity
+        'clf__min_samples_leaf': [1, 2, 5],         # avoid tiny leaves (overfit)
+        'clf__max_features': [None, 'sqrt', 'log2'],# feature subsampling at split
+        'clf__min_samples_split': [2, 10],          # split robustness
+        'clf__ccp_alpha': [0.0, 1e-4, 1e-3]         # post-pruning via cost-complexity
+
+    UNIGRAM:
+
+        Optimal values: 'clf__ccp_alpha': 0.0, 'clf__criterion': 'entropy', 'clf__max_depth': None, 'clf__max_features': None, 'clf__min_samples_leaf': 5, 'clf__min_samples_split': 2, 'vectorizer__min_df': 1
+        Score: 0.6813 
+    
+    BIGRAM:
+
+        Optimal values: took too long
+        Score: took too long

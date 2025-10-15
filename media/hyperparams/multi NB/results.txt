@@ -1,0 +1,35 @@
+BASELINE:
+
+    Model:
+
+        MultinomialNB(force_alpha=True)
+
+    UNIGRAM:
+
+        Score: 0.8484
+
+    BIGRAM:
+
+        Score: 0.8281
+
+TUNED:
+
+    Model: 
+
+        MultinomialNB(force_alpha=True)
+
+    Additional parameters fluctuated:
+
+        'vectorizer__min_df': [1,2,3,5,10]
+        nb__alpha': np.logspace(-3, 1, 8)
+
+    UNIGRAM:
+
+        Optimal values: 'nb__alpha': np.float64(0.19306977288832497), 'vectorizer__min_df': 5
+        Score: 0.8625
+    
+    BIGRAM:
+
+        Optimal values: 'nb__alpha': np.float64(0.0517947467923121), 'vectorizer__min_df': 2
+        Score: 0.8703
+
